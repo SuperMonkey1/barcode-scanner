@@ -13,6 +13,8 @@ abstract class MainNavigation {
 
   void goToLicense();
 
+  void goToBarcodeScanner();
+
   void closeDialog();
 
   void goBack<T>({T result});

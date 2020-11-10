@@ -1,15 +1,16 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_template/navigator/main_navigation.dart';
+import 'package:flutter_template/screen/barcodeScanner/barcode_scanner_screen.dart';
+import 'package:flutter_template/screen/debug/debug_platform_selector_screen.dart';
+import 'package:flutter_template/screen/home/home_screen.dart';
+import 'package:flutter_template/screen/license/license_screen.dart';
 import 'package:flutter_template/screen/login/login_screen.dart';
+import 'package:flutter_template/screen/splash/splash_screen.dart';
 import 'package:flutter_template/screen/todo/todo_add/todo_add_screen.dart';
 import 'package:flutter_template/styles/theme_colors.dart';
 import 'package:flutter_template/util/env/flavor_config.dart';
-import 'package:flutter_template/widget/general/flavor_banner.dart';
-import 'package:flutter_template/screen/license/license_screen.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_template/screen/debug/debug_platform_selector_screen.dart';
-import 'package:flutter_template/screen/home/home_screen.dart';
-import 'package:flutter_template/screen/splash/splash_screen.dart';
 import 'package:flutter_template/util/route/fade_in_route.dart';
+import 'package:flutter_template/widget/general/flavor_banner.dart';
 import 'package:flutter_template/widget/general/text_scale_factor.dart';
 
 class MainNavigatorWidget extends StatefulWidget {
@@ -66,6 +67,8 @@ class MainNavigatorWidgetState extends State<MainNavigatorWidget> with MainNavig
         return FadeInRoute<void>(child: FlavorBanner(child: HomeScreen()), settings: settings);
       case TodoAddScreen.routeName:
         return MaterialPageRoute<void>(builder: (context) => const FlavorBanner(child: TodoAddScreen()), settings: settings);
+      case BarcodeScannerScreen.routeName:
+        return MaterialPageRoute<void>(builder: (context) => const FlavorBanner(child: BarcodeScannerScreen()), settings: settings);
       case DebugPlatformSelectorScreen.routeName:
         return MaterialPageRoute<void>(builder: (context) => const FlavorBanner(child: DebugPlatformSelectorScreen()), settings: settings);
       case LicenseScreen.routeName:
@@ -97,6 +100,9 @@ class MainNavigatorWidgetState extends State<MainNavigatorWidget> with MainNavig
 
   @override
   void goToLicense() => navigationKey.currentState.pushNamed(LicenseScreen.routeName);
+
+  @override
+  void goToBarcodeScanner() => navigationKey.currentState.pushNamed(BarcodeScannerScreen.routeName);
 
   @override
   void closeDialog() => Navigator.of(context, rootNavigator: true).pop();

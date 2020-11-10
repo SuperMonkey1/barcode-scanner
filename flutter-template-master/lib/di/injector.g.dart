@@ -87,6 +87,7 @@ class _$Injector extends Injector {
     container.registerFactory((c) => TodoListViewModel(c<TodoRepo>()));
     container.registerFactory((c) => TodoAddViewModel(c<TodoRepo>()));
     container.registerFactory((c) => LoginViewModel(c<LoginRepo>()));
+    container.registerFactory((c) => BarcodeScannerViewModel());
   }
 
   @override

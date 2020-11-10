@@ -38,6 +38,9 @@ class _MockMainNavigatorState extends State<MockMainNavigator> with MainNavigati
   void goToLicense() => widget.mock.goToLicense();
 
   @override
+  void goToBarcodeScanner() => widget.mock.goToBarcodeScanner();
+
+  @override
   void goToLogin() => widget.mock.goToLogin();
 
   @override
