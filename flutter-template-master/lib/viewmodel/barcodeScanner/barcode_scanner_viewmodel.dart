@@ -1,29 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 
 class BarcodeScannerViewModel with ChangeNotifier {
   BarcodeScannerNavigator _navigator;
   String _scanBarcode = 'Unknown';
 
+  String get scannedBarcode => _scanBarcode;
+
   Future<void> init(BarcodeScannerNavigator navigator) async {
     _navigator = navigator;
   }
 
-  // Future<void> scanBarcodeNormal() async {
-  //   String barcodeScanRes;
-  //   try {
-  //     barcodeScanRes = await FlutterBarcodeScanner.scanBarcode('#ff6666', 'Cancel', true, ScanMode.BARCODE);
-  //     print(barcodeScanRes);
-  //   } on PlatformException {
-  //     barcodeScanRes = 'Failed to get platform version.';
-  //   }
-  //   if (!mounted) return;
-  //   setState(() {
-  //     _scanBarcode = barcodeScanRes;
-  //   });
-  // }
+  Future<void> onStartBarcodeScan() async {
+    String _barcodeScanRes;
+    try {
+      _barcodeScanRes = await FlutterBarcodeScanner.scanBarcode('#ff6666', 'Cancel', true, ScanMode.BARCODE);
+    } on PlatformException {
+      _barcodeScanRes = 'Failed to get platform version';
+    }
 
-  void onStartBarcodeScan() {
-    //scanBarcodeNormal();
+    /// TODO: What does 'mounted' mean and is it required here? (Originally in screen and with setState)
+    //if (!mounted) return;
+
+    _scanBarcode = _barcodeScanRes;
+    notifyListeners();
   }
 }
 
