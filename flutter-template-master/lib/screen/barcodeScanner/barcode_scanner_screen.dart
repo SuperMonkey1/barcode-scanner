@@ -50,7 +50,8 @@ class _BarcodeScannerScreenState extends State<BarcodeScannerScreen> with BackNa
               alignment: Alignment.center,
               child: Flex(direction: Axis.vertical, mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
                 RaisedButton(
-                  onPressed: () => scanBarcodeNormal(),
+                  onPressed: viewModel.onStartBarcodeScan,
+                  //onPressed: () => scanBarcodeNormal(),
                   child: const Text('Start barcode scan'),
                 ),
                 Text('Scan result : $_scanBarcode\n', style: const TextStyle(fontSize: 20))
