@@ -5,11 +5,11 @@ part 'todo.g.dart';
 
 @JsonSerializable()
 class Todo {
-  @JsonKey(name: 'id', required: true)
+  @JsonKey(name: 'id', required: true, includeIfNull: false)
   final int id;
-  @JsonKey(name: 'title', required: true)
+  @JsonKey(name: 'title', required: true, includeIfNull: false)
   final String title;
-  @JsonKey(name: 'completed', required: true)
+  @JsonKey(name: 'completed', required: true, includeIfNull: false)
   final bool completed;
 
   Todo({

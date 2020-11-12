@@ -1,6 +1,6 @@
-import 'package:flutter_template/model/webservice/todo/todo.dart';
+import 'package:flutter_template/model/webservice/product/product.dart';
 
 // ignore: one_member_abstracts
-abstract class TodoService {
-  Future<List<Todo>> getTodos();
+abstract class ProductService {
+  Future<List<Product>> getProducts();
 }

@@ -1,19 +1,19 @@
-import 'package:flutter_template/model/webservice/todo/todo.dart';
+import 'package:flutter_template/model/webservice/product/product.dart';
 import 'package:flutter_template/styles/theme_durations.dart';
 import 'package:flutter_template/util/api/dummy_api_util.dart';
-import 'package:flutter_template/webservice/todo/todo_service.dart';
+import 'package:flutter_template/webservice/product/product_service.dart';
 
-class TodoDummyService extends TodoService {
-  final todos = <Todo>[];
+class ProductDummyService extends ProductService {
+  final products = <Product>[];
 
   @override
-  Future<List<Todo>> getTodos() async {
+  Future<List<Product>> getProducts() async {
     await Future<void>.delayed(ThemeDurations.demoNetworkCallDuration());
-    if (todos.isEmpty) {
-      final result = await DummyApiUtil.getResponse<List<Map<String, dynamic>>>('todos');
-      final newTodos = result.map((item) => Todo.fromJson(item)).toList();
-      todos.addAll(newTodos);
+    if (products.isEmpty) {
+      final result = await DummyApiUtil.getResponse<List<Map<String, dynamic>>>('products');
+      final newProducts = result.map((item) => Product.fromJson(item)).toList();
+      products.addAll(newProducts);
     }
-    return todos;
+    return products;
   }
 }

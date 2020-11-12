@@ -13,3 +13,145 @@ Todo:
     completed:
       required: true
       type: bool
+
+##################################################################################
+#####                                PRICE                                   #####
+##################################################################################
+Price:
+  path: webservice/price/
+  properties:
+    displayPriceType:
+      required: false
+      type: String
+    productPrice:
+      required: false
+      type: double
+    displayPrice:
+      required: false
+      type: double
+    retailPrice:
+      required: false
+      type: double
+    formattedPrice:
+      required: false
+      type: String
+    formattedDisplayPrice:
+      required: false
+      type: String
+    formattedRetailPrice:
+      required: false
+      type: String
+    currencyCode:
+      required: false
+      type: String
+    isPreOrder:
+      required: false
+      type: bool
+    isBackOrder:
+      required: false
+      type: bool
+
+##################################################################################
+#####                                PRODUCT DATA                            #####
+##################################################################################
+ProductData:
+  path: webservice/product_data/
+  properties:
+    locale:
+      required: false
+      type: String
+    ctn:
+      required: false
+      type: String
+    code12NC:
+      required: false
+      type: String
+    dtn:
+      required: false
+      type: String
+    leafletUrl:
+      required: false
+      type: String
+    productTitle:
+      required: false
+      type: String
+    alphanumeric:
+      required: false
+      type: String
+    brandName:
+      required: false
+      type: String
+    productURL:
+      required: false
+      type: String
+    productPagePath:
+      required: false
+      type: String
+    categoryPath:
+      required: false
+      type: String
+    descriptor:
+      required: false
+      type: String
+    domain:
+      required: false
+      type: String
+    productStatus:
+      required: false
+      type: String
+    imageURL:
+      required: false
+      type: String
+    sop:
+      required: false
+      type: String
+    somp:
+      required: false
+      type: String
+    eop:
+      required: false
+      type: String
+    isDeleted:
+      required: false
+      type: bool
+    priority:
+      required: false
+      type: int
+    price:
+      required: false
+      type: Price
+    wow:
+      required: false
+      type: String
+    marketingStatus:
+      required: false
+      type: String
+    marketingTextHeader:
+      required: false
+      type: String
+    subcategory:
+      required: false
+      type: String
+    versions:
+      required: false
+      type: array
+      items:
+        type: String
+    filterKeys:
+      required: false
+      type: array
+      items:
+        type: String
+
+##################################################################################
+#####                                PRODUCT                                 #####
+##################################################################################
+Product:
+  path: webservice/product/
+  properties:
+    succes:
+      required: false
+      type: bool
+    data:
+      required: false
+      type: ProductData
