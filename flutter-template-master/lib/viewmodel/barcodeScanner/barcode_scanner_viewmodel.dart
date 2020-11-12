@@ -12,7 +12,19 @@ class BarcodeScannerViewModel with ChangeNotifier {
     _navigator = navigator;
   }
 
+  // Future<void> requestPermission(Permission permission) async {
+  //   final status = await permission.request();
+  //
+  //   setState(() {
+  //     print(status);
+  //     _permissionStatus = status;
+  //     print(_permissionStatus);
+  //   });
+  // }
+
   Future<void> onStartBarcodeScan() async {
+    //requestPermission(_permission);
+
     String _barcodeScanRes;
     try {
       _barcodeScanRes = await FlutterBarcodeScanner.scanBarcode('#ff6666', 'Cancel', true, ScanMode.BARCODE);
