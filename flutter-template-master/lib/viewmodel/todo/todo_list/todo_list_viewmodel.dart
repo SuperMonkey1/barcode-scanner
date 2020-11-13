@@ -24,7 +24,9 @@ class TodoListViewModel with ChangeNotifier {
 
   Stream<List<Todo>> get dataStream => _todoStream;
 
-  TodoListViewModel(this._todoRepo);
+  TodoListViewModel(
+    this._todoRepo,
+  );
 
   Future<void> init(TodoListViewNavigator navigator) async {
     _navigator = navigator;

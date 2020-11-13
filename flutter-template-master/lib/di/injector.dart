@@ -44,6 +44,7 @@ import 'package:flutter_template/viewmodel/debug/debug_viewmodel.dart';
 import 'package:flutter_template/viewmodel/global/global_viewmodel.dart';
 import 'package:flutter_template/viewmodel/license/license_viewmodel.dart';
 import 'package:flutter_template/viewmodel/login/login_viewmodel.dart';
+import 'package:flutter_template/viewmodel/product_list/product_list_viewmodel.dart';
 import 'package:flutter_template/viewmodel/splash/splash_viewmodel.dart';
 import 'package:flutter_template/viewmodel/todo/todo_add/todo_add_viewmodel.dart';
 import 'package:flutter_template/viewmodel/todo/todo_list/todo_list_viewmodel.dart';
@@ -102,6 +103,7 @@ abstract class Injector {
   @Register.factory(TodoAddViewModel)
   @Register.factory(LoginViewModel)
   @Register.factory(BarcodeScannerViewModel)
+  @Register.factory(ProductListViewModel)
   void registerViewModelFactories();
 
   @Register.singleton(FlutterSecureStorage)

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:kiwi/kiwi.dart';
 import 'package:flutter_template/app.dart';
 import 'package:flutter_template/niddler.dart';
 import 'package:flutter_template/util/env/flavor_config.dart';
 import 'package:flutter_template/util/extension/kiwi_extensions.dart';
+import 'package:kiwi/kiwi.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -11,7 +11,8 @@ Future<void> main() async {
   await initNiddler();
 
   const values = FlavorValues(
-    baseUrl: 'https://jsonplaceholder.typicode.com/',
+    //baseUrl: 'https://jsonplaceholder.typicode.com/',
+    baseUrl: 'https://www.lighting.philips.com/',
     logNetworkInfo: true,
     showFullErrorMessages: true,
   );

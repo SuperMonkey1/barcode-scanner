@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_template/screen/barcodeScanner/barcode_scanner_screen.dart';
 import 'package:flutter_template/screen/debug/debug_screen.dart';
+import 'package:flutter_template/screen/product_list/product_list_screen.dart';
 import 'package:flutter_template/screen/todo/todo_list/todo_list_screen.dart';
 import 'package:flutter_template/util/locale/localization.dart';
 
@@ -21,6 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: IndexedStack(
         children: const [
           TodoListScreen(),
+          ProductListScreen(),
           BarcodeScannerScreen(),
           DebugScreen(),
         ],
@@ -33,6 +35,10 @@ class _HomeScreenState extends State<HomeScreen> {
           BottomNavigationBarItem(
             icon: const Icon(Icons.list),
             label: localization.todoTitle,
+          ),
+          const BottomNavigationBarItem(
+            icon: Icon(Icons.list),
+            label: 'products',
           ),
           const BottomNavigationBarItem(
             icon: Icon(Icons.image),

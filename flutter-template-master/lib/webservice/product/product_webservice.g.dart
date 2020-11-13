@@ -20,7 +20,8 @@ class _ProductWebService implements ProductWebService {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    final _result = await _dio.request<List<dynamic>>('/todos',
+    final _result = await _dio.request<List<dynamic>>(
+        '//prx/product/B2C/nl_NL/CONSUMER/products/6912660PH.summary',
         queryParameters: queryParameters,
         options: RequestOptions(
             method: 'GET',
