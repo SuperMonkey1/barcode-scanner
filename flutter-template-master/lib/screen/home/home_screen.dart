@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_template/screen/barcodeScanner/barcode_scanner_screen.dart';
 import 'package:flutter_template/screen/debug/debug_screen.dart';
 import 'package:flutter_template/screen/product_list/product_list_screen.dart';
-import 'package:flutter_template/screen/todo/todo_list/todo_list_screen.dart';
 import 'package:flutter_template/util/locale/localization.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -21,7 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: IndexedStack(
         children: const [
-          TodoListScreen(),
+          //TodoListScreen(),
           ProductListScreen(),
           BarcodeScannerScreen(),
           DebugScreen(),
@@ -32,12 +31,12 @@ class _HomeScreenState extends State<HomeScreen> {
         onTap: _onTap,
         currentIndex: _currentIndex,
         items: [
-          BottomNavigationBarItem(
-            icon: const Icon(Icons.list),
-            label: localization.todoTitle,
-          ),
+          // BottomNavigationBarItem(
+          //   icon: const Icon(Icons.list),
+          //   label: localization.todoTitle,
+          // ),
           const BottomNavigationBarItem(
-            icon: Icon(Icons.list),
+            icon: Icon(Icons.pest_control_rodent),
             label: 'products',
           ),
           const BottomNavigationBarItem(

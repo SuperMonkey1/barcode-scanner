@@ -10,6 +10,6 @@ abstract class ProductWebService extends ProductService {
   factory ProductWebService(Dio dio) = _ProductWebService;
 
   @override
-  @GET('//prx/product/B2C/nl_NL/CONSUMER/products/6912660PH.summary')
-  Future<List<Product>> getProducts();
+  @GET('/prx/product/B2C/nl_NL/CONSUMER/products/6912660PH.summary')
+  Future<Product> getProduct();
 }

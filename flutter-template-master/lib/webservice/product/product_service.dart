@@ -2,5 +2,5 @@ import 'package:flutter_template/model/webservice/product/product.dart';
 
 // ignore: one_member_abstracts
 abstract class ProductService {
-  Future<List<Product>> getProducts();
+  Future<Product> getProduct();
 }

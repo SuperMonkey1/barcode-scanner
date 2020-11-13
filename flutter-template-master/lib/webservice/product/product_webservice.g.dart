@@ -16,22 +16,13 @@ class _ProductWebService implements ProductWebService {
   String baseUrl;
 
   @override
-  Future<List<Product>> getProducts() async {
+  Future<Product> getProduct() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    final _result = await _dio.request<List<dynamic>>(
-        '//prx/product/B2C/nl_NL/CONSUMER/products/6912660PH.summary',
-        queryParameters: queryParameters,
-        options: RequestOptions(
-            method: 'GET',
-            headers: <String, dynamic>{},
-            extra: _extra,
-            baseUrl: baseUrl),
-        data: _data);
-    var value = _result.data
-        .map((dynamic i) => Product.fromJson(i as Map<String, dynamic>))
-        .toList();
+    final _result = await _dio.request<Map<String, dynamic>>('/prx/product/B2C/nl_NL/CONSUMER/products/6912660PH.summary',
+        queryParameters: queryParameters, options: RequestOptions(method: 'GET', headers: <String, dynamic>{}, extra: _extra, baseUrl: baseUrl), data: _data);
+    final value = Product.fromJson(_result.data);
     return value;
   }
 }

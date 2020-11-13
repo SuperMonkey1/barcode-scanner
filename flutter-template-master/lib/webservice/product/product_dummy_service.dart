@@ -4,16 +4,15 @@ import 'package:flutter_template/util/api/dummy_api_util.dart';
 import 'package:flutter_template/webservice/product/product_service.dart';
 
 class ProductDummyService extends ProductService {
-  final products = <Product>[];
+  Product product;
 
   @override
-  Future<List<Product>> getProducts() async {
+  Future<Product> getProduct() async {
     await Future<void>.delayed(ThemeDurations.demoNetworkCallDuration());
-    if (products.isEmpty) {
+    if (product != null) {
       final result = await DummyApiUtil.getResponse<List<Map<String, dynamic>>>('products');
-      final newProducts = result.map((item) => Product.fromJson(item)).toList();
-      products.addAll(newProducts);
+      product = result.map((item) => Product.fromJson(item)).first;
     }
-    return products;
+    return product;
   }
 }

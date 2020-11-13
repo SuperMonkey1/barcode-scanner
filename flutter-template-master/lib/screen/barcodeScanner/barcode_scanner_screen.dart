@@ -27,6 +27,9 @@ class _BarcodeScannerScreenState extends State<BarcodeScannerScreen> with BackNa
     return ChangeNotifierProvider<BarcodeScannerViewModel>(
       child: Consumer<BarcodeScannerViewModel>(
         builder: (context, viewModel, child) => Scaffold(
+          appBar: AppBar(
+            title: const Text('Scanner'),
+          ),
           body: Container(
             alignment: Alignment.center,
             child: Flex(

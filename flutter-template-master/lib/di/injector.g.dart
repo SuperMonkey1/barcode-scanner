@@ -36,12 +36,15 @@ class _$Injector extends Injector {
   void registerWebservices() {
     final KiwiContainer container = KiwiContainer();
     container.registerSingleton<TodoService>((c) => TodoWebService(c<Dio>()));
+    container
+        .registerSingleton<ProductService>((c) => ProductWebService(c<Dio>()));
   }
 
   @override
   void registerDummyServices() {
     final KiwiContainer container = KiwiContainer();
     container.registerSingleton<TodoService>((c) => TodoDummyService());
+    container.registerSingleton<ProductService>((c) => ProductDummyService());
   }
 
   @override
@@ -88,7 +91,7 @@ class _$Injector extends Injector {
     container.registerFactory((c) => TodoAddViewModel(c<TodoRepo>()));
     container.registerFactory((c) => LoginViewModel(c<LoginRepo>()));
     container.registerFactory((c) => BarcodeScannerViewModel());
-    container.registerFactory((c) => ProductListViewModel());
+    container.registerFactory((c) => ProductListViewModel(c<ProductService>()));
   }
 
   @override

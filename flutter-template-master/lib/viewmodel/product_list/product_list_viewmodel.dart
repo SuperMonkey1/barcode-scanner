@@ -7,20 +7,24 @@ import 'package:flutter_template/webservice/product/product_service.dart';
 
 class ProductListViewModel with ChangeNotifier {
   ProductListNavigator _navigator;
-  ProductService _productService;
+  final ProductService _productService;
 
   var _isLoading = false;
   String _errorKey;
-  List<Product> _products;
-  Future<List<Product>> _productFuture;
+  Product _product;
 
   bool get isLoading => _isLoading;
   String get errorKey => _errorKey;
-  Future<List<Product>> get dataFuture => _productFuture;
+  Product get product => _product;
+
+  ProductListViewModel(
+    this._productService,
+  );
 
   Future<void> init(ProductListNavigator navigator) async {
     _navigator = navigator;
-    _productFuture = _productService.getProducts();
+    _product = await _productService.getProduct();
+    notifyListeners();
   }
 
   Future<void> onDownloadProductClicked() async {
@@ -29,7 +33,7 @@ class ProductListViewModel with ChangeNotifier {
       _errorKey = null;
       notifyListeners();
 
-      _products = await _productService.getProducts();
+      _product = await _productService.getProduct();
     } catch (e) {
       FlutterTemplateLogger.logError(message: 'failed to get products', error: e);
       if (e is FlutterTemplateError) {
@@ -39,7 +43,7 @@ class ProductListViewModel with ChangeNotifier {
       }
     } finally {
       _isLoading = false;
-      print('$_products');
+      print('$_product');
       notifyListeners();
     }
   }

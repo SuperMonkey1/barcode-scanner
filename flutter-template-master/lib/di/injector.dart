@@ -48,6 +48,9 @@ import 'package:flutter_template/viewmodel/product_list/product_list_viewmodel.d
 import 'package:flutter_template/viewmodel/splash/splash_viewmodel.dart';
 import 'package:flutter_template/viewmodel/todo/todo_add/todo_add_viewmodel.dart';
 import 'package:flutter_template/viewmodel/todo/todo_list/todo_list_viewmodel.dart';
+import 'package:flutter_template/webservice/product/product_dummy_service.dart';
+import 'package:flutter_template/webservice/product/product_service.dart';
+import 'package:flutter_template/webservice/product/product_webservice.dart';
 import 'package:flutter_template/webservice/todo/todo_dummy_service.dart';
 import 'package:flutter_template/webservice/todo/todo_service.dart';
 import 'package:flutter_template/webservice/todo/todo_webservice.dart';
@@ -75,9 +78,11 @@ abstract class Injector {
   void registerBridge();
 
   @Register.singleton(TodoService, from: TodoWebService)
+  @Register.singleton(ProductService, from: ProductWebService)
   void registerWebservices();
 
   @Register.singleton(TodoService, from: TodoDummyService)
+  @Register.singleton(ProductService, from: ProductDummyService)
   void registerDummyServices();
 
   @Register.singleton(TodoRepo, from: TodoRepository)
