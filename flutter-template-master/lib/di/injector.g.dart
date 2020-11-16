@@ -72,6 +72,7 @@ class _$Injector extends Injector {
         .registerSingleton<AuthStoring>((c) => AuthStorage(c<SecureStoring>()));
     container.registerSingleton<ConnectivityControlling>(
         (c) => ConnectivityController(c<Connectivity>()));
+    container.registerSingleton<PermissionHandling>((c) => PermissionHandler());
   }
 
   @override
@@ -87,7 +88,8 @@ class _$Injector extends Injector {
     container.registerFactory((c) => TodoListViewModel(c<TodoRepo>()));
     container.registerFactory((c) => TodoAddViewModel(c<TodoRepo>()));
     container.registerFactory((c) => LoginViewModel(c<LoginRepo>()));
-    container.registerFactory((c) => BarcodeScannerViewModel());
+    container.registerFactory(
+        (c) => BarcodeScannerViewModel(c<PermissionHandling>()));
   }
 
   @override

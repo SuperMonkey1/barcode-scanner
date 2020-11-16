@@ -38,6 +38,8 @@ import 'package:flutter_template/util/interceptor/network_error_interceptor.dart
 import 'package:flutter_template/util/interceptor/network_log_interceptor.dart';
 import 'package:flutter_template/util/interceptor/network_refresh_interceptor.dart';
 import 'package:flutter_template/util/logger/flutter_template_logger.dart';
+import 'package:flutter_template/util/permission/permission_handler.dart';
+import 'package:flutter_template/util/permission/permission_handling.dart';
 import 'package:flutter_template/viewmodel/barcodeScanner/barcode_scanner_viewmodel.dart';
 import 'package:flutter_template/viewmodel/debug/debug_platform_selector_viewmodel.dart';
 import 'package:flutter_template/viewmodel/debug/debug_viewmodel.dart';
@@ -91,6 +93,7 @@ abstract class Injector {
   @Register.singleton(SecureStoring, from: SecureStorage)
   @Register.singleton(AuthStoring, from: AuthStorage)
   @Register.singleton(ConnectivityControlling, from: ConnectivityController)
+  @Register.singleton(PermissionHandling, from: PermissionHandler)
   void registerCommonDependencies();
 
   @Register.factory(GlobalViewModel)

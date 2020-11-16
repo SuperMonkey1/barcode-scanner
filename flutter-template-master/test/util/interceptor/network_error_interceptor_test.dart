@@ -95,7 +95,7 @@ void main() {
     test('NetworkErrorInterceptorTest parse 403 error with unknown code 45648', () async {
       final data = <String, dynamic>{};
       data['code'] = '45648';
-      final dioError = DioError(response: Response<Map<String,dynamic>>(statusCode: 403, data: data));
+      final dioError = DioError(response: Response<Map<String, dynamic>>(statusCode: 403, data: data));
       final dynamic newError = await sut.onError(dioError);
       expect(newError is FlutterTemplateError, true);
       expect(newError is DioError, true);
